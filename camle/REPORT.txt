@@ -1,0 +1,178 @@
+KRISTIAN KRASTEV kk12742
+
+COMS22201 Language Engineering 
+
+REPORT ON Assignment 1 : PROGRAMING LANGUAGE FOR AN ABSTRACT MACHINE
+
+1.LANGUAGE FEATURES IMPLEMENTED
+
+  I believe that I have successfully implemented: 
+	- Arithmetic operators                  test1.le
+	- Variables		                        test2.le
+	- Assignment statements 	            test2.le
+	- read statements		                test3.le
+    - Conditional statements		        test4.le
+
+  Not sure what went wrong with the loops - didnt have time left to debug.
+
+  testa.ass seems to work though...
+
+2.COMPILING & RUNNING THE COMPILER
+
+  My program can be compiled and run, exactly in the way specified on the assignment
+  description page:
+  
+  1) to compile the compiler:
+      make -f Makefile
+  2) to run the compiler on a input file test.le
+      assmule3 -cg test.le 
+
+3.EMULATOR OUTPUT
+
+ => snowy:camle$ ./assmule test1.ass
+    ASS/MULE - ASSembler/eMUlator for Language Engineering - v2.3 - Steve Gregory
+    ---test1.ass ASSEMBLY BEGINS
+    ---test1.ass ASSEMBLY ENDS
+    ---test1.ass EXECUTION BEGINS
+    -5.000000
+    7.000000
+    -16.000000
+    -0.500000
+    -0.700000
+    -1.366667
+    ---test1.ass EXECUTION ENDS
+    STATISTICS:
+      50 instructions generated
+      12 registers used
+      50 instructions executed
+
+ => snowy:camle$ ./assmule test2.ass
+    ASS/MULE - ASSembler/eMUlator for Language Engineering - v2.3 - Steve Gregory
+    ---test2.ass ASSEMBLY BEGINS
+    ---test2.ass ASSEMBLY ENDS
+    ---test2.ass EXECUTION BEGINS
+    10023.000000
+    10023.000000
+    76.500000
+    76.500000
+    ---test2.ass EXECUTION ENDS
+    STATISTICS:
+      22 instructions generated
+      2 registers used
+      22 instructions executed
+
+ => snowy:camle$ ./assmule test3.ass
+    ASS/MULE - ASSembler/eMUlator for Language Engineering - v2.3 - Steve Gregory
+    ---test3.ass ASSEMBLY BEGINS
+    ---test3.ass ASSEMBLY ENDS
+    ---test3.ass EXECUTION BEGINS
+    Enter a number: 4
+    Enter a number: 5
+    First is 4.000000; second is 5.000000
+    ---test3.ass EXECUTION ENDS
+    STATISTICS:
+      15 instructions generated
+      2 registers used
+      15 instructions executed
+
+ => snowy:camle$ ./assmule test4.ass
+    ASS/MULE - ASSembler/eMUlator for Language Engineering - v2.3 - Steve Gregory
+    ---test4.ass ASSEMBLY BEGINS
+    ---test4.ass ASSEMBLY ENDS
+    ---test4.ass EXECUTION BEGINS
+    1.0000003.000000
+    6.000000
+
+    7.0000008.000000bcd
+    ---test4.ass EXECUTION ENDS
+    STATISTICS:
+      101 instructions generated
+      4 registers used
+      75 instructions executed
+
+ => snowy:camle$ ./assmule -j test5.ass
+    ASS/MULE - ASSembler/eMUlator for Language Engineering - v2.3 - Steve Gregory
+    ---test5.ass ASSEMBLY BEGINS
+    ---test5.ass ASSEMBLY ENDS
+    ---test5.ass EXECUTION BEGINS
+    1.000000
+    WARNING: Disabled backward jump in    7: JMP 1  
+    2.0000003.000000
+    WARNING: Disabled backward jump in   22: JMP 15  
+    5.000000
+
+    7.000000
+    WARNING: Disabled backward jump in   37: BLTZR R4 32 
+    WARNING: Disabled backward jump in   50: JMP 45  
+    ab
+    WARNING: Disabled backward jump in   62: JMP 57  
+    c
+    WARNING: Disabled backward jump in   67: BLTZR R4 63 
+    d
+    WARNING: Disabled backward jump in   74: JMP 69  
+    WARNING: Disabled backward jump in   79: JMP 63  
+    ---test5.ass EXECUTION ENDS
+    STATISTICS:
+      81 instructions generated
+      4 registers used
+      79 instructions executed
+
+ => snowy:camle$ ./assmule testa.ass
+    ASS/MULE - ASSembler/eMUlator for Language Engineering - v2.3 - Steve Gregory
+    ---testa.ass ASSEMBLY BEGINS
+    ---testa.ass ASSEMBLY ENDS
+    ---testa.ass EXECUTION BEGINS
+    Recommended input:
+    -2 -1.25 0.5 1.25
+    40
+
+    Please enter (left,top),(right,bottom)
+    -2 -1.25 0.5 1.25
+    Please enter maximum iterations
+    40
+    :::::::::::::::::::::::::::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%::::::::::::::::
+    :::::::::::::::::::::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%::::::::::
+    :::::::::::::::::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%::::::
+    ::::::::::::::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&%%%%%%%%%%%%%%%%%:::
+    :::::::::::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&&&*& %%%%%%%%%%%%%%%
+    ::::::::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&&*&&%%%%%%%%%%%%%%%%
+    ::::::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&&&*  *&&&%%%%%%%%%%%%%%
+    ::::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&*      * *%%%%%%%%%%%%%%
+    :::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&&*        &&%%%%%%%%%%%%%
+    :::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&&*&&&&&&&&&*     *&&&&&&%%%%%&&%%%
+    ::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&*****&&               * *&&*&&&&&%%
+    :::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&&                        **   *&&%%
+    ::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%& &&*                            *&%%%
+    :::%%%%%%%%%%%%%%%%%%%%&%%%%%%%%%%%%%%%%&&*                                *&&%%
+    ::%%%%%%%%%%%%%%%%%%%%%&&&&%%%&&&&%%%%&&&&*                                 ** &
+    ::%%%%%%%%%%%%%%%%%%%%%&&&**&&&&*&&&&&&&&&                                    &%
+    :%%%%%%%%%%%%%%%%%%%%%%&&&*  *      *&&&&                                    &&%
+    :%%%%%%%%%%%%%%%%%%%%%&&&*             &*                                    &&%
+    :%%%%%%%%%%%%%%%%%&*&&&&*               *                                   *&%%
+    :%%%%%%%%%%%%%%%%&&&*                                                      *&%%%
+    :                                                                        *&&%%%%
+    :%%%%%%%%%%%%%%%%&&&*                                                      *&%%%
+    :%%%%%%%%%%%%%%%%%&*&&&&*               *                                   *&%%
+    :%%%%%%%%%%%%%%%%%%%%%&&&*             &*                                    &&%
+    :%%%%%%%%%%%%%%%%%%%%%%&&&*  *      *&&&&                                    &&%
+    ::%%%%%%%%%%%%%%%%%%%%%&&&**&&&&*&&&&&&&&&                                    &%
+    ::%%%%%%%%%%%%%%%%%%%%%&&&&%%%&&&&%%%%&&&&*                                 ** &
+    :::%%%%%%%%%%%%%%%%%%%%&%%%%%%%%%%%%%%%%&&*                                *&&%%
+    ::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%& &&*                            *&%%%
+    :::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&&                        **   *&&%%
+    ::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&*****&&               * *&&*&&&&&%%
+    :::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&&*&&&&&&&&&*     *&&&&&&%%%%%&&%%%
+    :::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&&*        &&%%%%%%%%%%%%%
+    ::::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&*      * *%%%%%%%%%%%%%%
+    ::::::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&&&*  *&&&%%%%%%%%%%%%%%
+    ::::::::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&&*&&%%%%%%%%%%%%%%%%
+    :::::::::::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&&&*& %%%%%%%%%%%%%%%
+    ::::::::::::::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&&%%%%%%%%%%%%%%%%%:::
+    :::::::::::::::::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%::::::
+    :::::::::::::::::::::::::::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%::::::::::
+    ---testa.ass EXECUTION ENDS
+    STATISTICS:
+      151 instructions generated
+      30 registers used
+      2091967 instructions executed
+
